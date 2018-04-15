@@ -19,10 +19,12 @@ import java.util.List;
 public class MovieController {
     private final RestTemplate restTemplate;
 
+    private final DiscoveryClient discoveryClient;
 
     @Autowired
-    public MovieController(RestTemplate restTemplate) {
+    public MovieController(RestTemplate restTemplate, DiscoveryClient discoveryClient) {
         this.restTemplate = restTemplate;
+        this.discoveryClient = discoveryClient;
     }
 
     @GetMapping("/user/{id}")
@@ -30,5 +32,15 @@ public class MovieController {
         return this.restTemplate.getForObject("http://localhost:8000/" + id, User.class);
     }
 
+
+    /**
+     * 查询microservice-provider-user的服务信息并返回
+     *
+     * @return
+     */
+    @GetMapping("/user-instance")
+    public List<ServiceInstance> showInfo() {
+        return this.discoveryClient.getInstances("microservice-provider-user");
+    }
 
 }

@@ -1,7 +1,5 @@
-
 /target/
-maven-wrapper.jar
-
+!.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
 .apt_generated
@@ -10,21 +8,18 @@ maven-wrapper.jar
 .project
 .settings
 .springBeans
-.sts4-cache.
-
-
+.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
+*.iml
 *.ipr
-*.jar
 
 ### NetBeans ###
 /nbproject/private/
 /build/
 /nbbuild/
 /dist/
-/out/
 /nbdist/
 /.nb-gradle/
